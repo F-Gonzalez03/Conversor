@@ -4,8 +4,8 @@ import javax.swing.JOptionPane;
 
 public class ConversorMonedas extends Conversor {
     private double tasaCambio;
-    private String monedaInicial;
-    private String moneda;
+    private String nombreInicial;
+    private String nombreFinal;
   
     public double opciones() {
         Object[] opciones = {"De Pesos a Dólar", "De Pesos a Euro", "De Pesos a Libra", "De Pesos a Yen",
@@ -23,55 +23,54 @@ public class ConversorMonedas extends Conversor {
         switch (seleccion) {
             case "De Pesos a Dólar":
                 tasaCambio = 1.0 / 525.0; // Usamos 1.0 para asegurar que se realice la división como double
-                monedaInicial = " Pesos equivalen a ";
-                moneda = " Dolares";
+                nombreInicial = " Pesos equivalen a ";
+                nombreFinal = " Dolares";
                 break;
             case "De Pesos a Euro":
                 tasaCambio = 1 / 300;
-                monedaInicial = " Pesos equivalen a ";
-                moneda = " Euros";
+                nombreInicial = " Pesos equivalen a ";
+                nombreFinal = " Euros";
                 break;
             case "De Pesos a Libra":
             	tasaCambio = 1 / 347;
-            	monedaInicial = " Pesos equivalen a ";
-            	moneda = " Libras";
+            	nombreInicial = " Pesos equivalen a ";
+            	nombreFinal = " Libras";
             	break;
             case "De Pesos a Yen":
             	tasaCambio = 1/ 2;
-            	monedaInicial = " Pesos equivalen a ";
-            	moneda = " Yenes";
+            	nombreInicial = " Pesos equivalen a ";
+            	nombreFinal = " Yenes";
             	break;
             case "De Pesos a Won Coreano":
             	tasaCambio = 4.71;
-            	monedaInicial = " Pesos equivalen a ";
-            	moneda = " Won Coreanos";
+            	nombreInicial = " Pesos equivalen a ";
+            	nombreFinal = " Won Coreanos";
             	break;
             case "De Dólar a Pesos":
                 tasaCambio = 525.0;
-                monedaInicial = " Dolares equivalen a ";
-                moneda = " Pesos";
+                nombreInicial = " Dolares equivalen a ";
+                nombreFinal = " Pesos";
                 break;
             case "De Euro a Pesos":
             	tasaCambio = 300;
-            	monedaInicial = " Euros equivalen a ";
-            	moneda = " Pesos";
+            	nombreInicial = " Euros equivalen a ";
+            	nombreFinal = " Pesos";
             	break;
             case "De Libra a Pesos":
             	tasaCambio = 347;
-            	monedaInicial = " Euros equivalen a ";
-            	moneda = " Pesos";
+            	nombreInicial = " Euros equivalen a ";
+            	nombreFinal = " Pesos";
             	break;
             case "De Yen a Pesos":
             	tasaCambio = 2;
-            	monedaInicial = " Yenes equivalen a ";
-            	moneda = " Pesos";
+            	nombreInicial = " Yenes equivalen a ";
+            	nombreFinal = " Pesos";
             	break;
             case "De Won Coreano a Pesos":
             	tasaCambio = 1 / 4.71;
-            	monedaInicial = " Yenes equivalen a ";
-            	moneda = " Pesos";
+            	nombreInicial = " Yenes equivalen a ";
+            	nombreFinal = " Pesos";
             	break;
-            // Agrega más casos para las otras opciones de conversión
             default:
                 JOptionPane.showMessageDialog(null, "Opción no válida.", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
@@ -79,12 +78,12 @@ public class ConversorMonedas extends Conversor {
         return tasaCambio;
     }
 
-    public String getMoneda() {
-		return moneda;
+    public String getnombreFinal() {
+		return nombreFinal;
 	}
     
-    public String getMonedaInicial() {
-		return monedaInicial;
+    public String getnombreInicial() {
+		return nombreInicial;
 	}
     
     public ConversorMonedas() {

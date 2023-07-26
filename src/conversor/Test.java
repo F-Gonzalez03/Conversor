@@ -5,18 +5,22 @@ import javax.swing.JOptionPane;
 public class Test {
 
 	public static void main(String[] args) {
-    
+		while (true) {
 		String seleccion = Conversor.mostrarMenu();
-        while (true) {
+        
         if (seleccion.equals("Conversor de Monedas")) {
-            ConversorMonedas conversorMonedas1 = new ConversorMonedas();
-            double monto = conversorMonedas1.obtenerMonto();
-            double montoConvertido = conversorMonedas1.convertir(monto);
-            JOptionPane.showMessageDialog(null, monto + conversorMonedas1.getMonedaInicial() + montoConvertido
-            		+ conversorMonedas1.getMoneda(), "Conversion Realizada", JOptionPane.PLAIN_MESSAGE);
+            ConversorMonedas conversor1 = new ConversorMonedas();
+            double monto = conversor1.obtenerMonto();
+            double montoConvertido = conversor1.convertir(monto);
+            JOptionPane.showMessageDialog(null, monto + conversor1.getnombreInicial() + montoConvertido
+            		+ conversor1.getnombreFinal(), "Conversion Realizada", JOptionPane.PLAIN_MESSAGE);
    
         } else if (seleccion.equals("Conversor de Temperatura")) {
-            // Lógica para el conversor de temperatura
+        	ConversorTemperatura conversor2 = new ConversorTemperatura();
+        	double monto = conversor2.obtenerMonto();
+        	double montoConvertido = conversor2.convertir(monto);
+        	JOptionPane.showMessageDialog(null, monto + conversor2.getnombreInicial() + montoConvertido
+            		+ conversor2.getnombreFinal(), "Conversion Realizada", JOptionPane.PLAIN_MESSAGE);
         } else if (seleccion.equals("Conversor de Presion")) {
             // Lógica para el conversor de presión
         } else {
