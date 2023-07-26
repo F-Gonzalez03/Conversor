@@ -2,12 +2,12 @@ package conversor;
 
 import javax.swing.JOptionPane;
 
-abstract class Conversor {
+public abstract class Conversor {
 	
     public abstract double convertir(double valor);
 
     public static String mostrarMenu() {
-        Object[] options = {"Conversor de Monedas", "Conversor de Temperatura", "Conversor de Presion"};
+        Object[] options = {"Conversor de Monedas", "Conversor de Temperatura", "Conversor de Longitud", "Conversor Astronomico"};
         String mensaje = "Seleccione una opción de conversión";
         String titulo = "Menu principal";
         int tipoMensaje = JOptionPane.PLAIN_MESSAGE;

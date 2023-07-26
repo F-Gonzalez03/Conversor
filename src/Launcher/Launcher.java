@@ -1,8 +1,10 @@
-package conversor;
+package Launcher;
 
 import javax.swing.JOptionPane;
 
-public class Test {
+import conversor.*;
+
+public class Launcher {
 
 	public static void main(String[] args) {
 		while (true) {
@@ -21,8 +23,21 @@ public class Test {
         	double montoConvertido = conversor2.convertir(monto);
         	JOptionPane.showMessageDialog(null, monto + conversor2.getnombreInicial() + montoConvertido
             		+ conversor2.getnombreFinal(), "Conversion Realizada", JOptionPane.PLAIN_MESSAGE);
-        } else if (seleccion.equals("Conversor de Presion")) {
-            // Lógica para el conversor de presión
+        } else if (seleccion.equals("Conversor de Longitud")) {
+        	
+            ConversorLongitud conversor3 = new ConversorLongitud();
+            double monto = conversor3.obtenerMonto();
+            double montoConvertido = conversor3.convertir(monto);
+            JOptionPane.showMessageDialog(null, monto + conversor3.getnombreInicial() + montoConvertido
+            		+ conversor3.getnombreFinal(), "Conversion Realizada", JOptionPane.PLAIN_MESSAGE);
+        } else if (seleccion.equals("Conversor Astronomico"))   {
+        	
+        	ConversorAstronomico conversor4 = new ConversorAstronomico();
+        	double monto = conversor4.obtenerMonto();
+        	double montoConvertido = conversor4.convertir(monto);
+        	JOptionPane.showMessageDialog(null, monto + conversor4.getnombreInicial() + montoConvertido
+            		+ conversor4.getnombreFinal(), "Conversion Realizada", JOptionPane.PLAIN_MESSAGE);
+        	
         } else {
         	JOptionPane.showMessageDialog(null, "Opción no válida.", "Error", JOptionPane.ERROR_MESSAGE);
         }
