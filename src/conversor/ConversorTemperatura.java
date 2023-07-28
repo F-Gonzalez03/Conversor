@@ -2,15 +2,36 @@ package conversor;
 
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * ConversorTemperatura es la clase hija que indiscutiblemente más cambios padece dentro de su codigo 
+ * en comparación con las otras 3 clases hijas, ya que sus calculos son bastante más especificos.
+ * 
+ * @author Facundo Gonzalez
+ *
+ */
+
+
 public class ConversorTemperatura extends Conversor {
 
-	private String seleccion;
 	private String nombreInicial;
 	private String nombreFinal;
 	private double tasaCambio;
+	private int indicador;
 	
+	/**
+	 * En este caso a diferencia de los otros metodos opciones(), le pedimos un valor al usuario y se encarga
+	 * de convertir directamente desde su switch, ya que cada conversión tiene su propio calculo.
+	 * @param valor
+	 * @return
+	 */
 	
-	public double opciones() {
+	public ConversorTemperatura(){
+		indicador = opciones();
+		
+	}
+	
+	public int opciones() {
         Object[] opciones = {"Celsius a Kelvin", "Celsius a Fahrenheit","Fahrenheit a Celsius", "Fahrenheit a Kelvin",
         		"Kelvin a Celsius", "Kelvin a Fahrenheit"};
         String mensaje = "Elija la temperatura a convertir";
@@ -26,56 +47,84 @@ public class ConversorTemperatura extends Conversor {
         switch (seleccion) {
         
         case "Celsius a Kelvin":
-        	tasaCambio = 274.15;
-        	nombreInicial = " Celsius equivalen a ";
+        	indicador = 1;
+        	nombreInicial = " Celsius";
             nombreFinal = " Kelvin";
             break;
         case "Celsius a Fahrenheit":
-        	tasaCambio = 33.8;
-        	nombreInicial = " Celsius equivalen a ";
+        	indicador = 2;
+        	nombreInicial = " Celsius";
             nombreFinal = " Fahrenheit";
             break;  
         case "Fahrenheit a Celsius":
-        	tasaCambio = -17.2222;
-        	nombreInicial = " Fahrenheit equivalen a ";
+        	indicador = 3;
+        	nombreInicial = " Fahrenheit";
             nombreFinal = " Celsius";
             break;  
         case "Fahrenheit a Kelvin":
-        	tasaCambio = 255.93;
-        	nombreInicial = " Fahrenheit equivalen a ";
+        	indicador = 4;
+        	nombreInicial = " Fahrenheit";
             nombreFinal = " Kelvin";
             break;  
         case "Kelvin a Celsius":
-        	tasaCambio = -272.15;
-        	nombreInicial = " Kelvin equivalen a ";
+        	indicador = 5;
+        	nombreInicial = " Kelvin";
             nombreFinal = " Celsius";
             break;  
         case "Kelvin a Fahrenheit":
-        	tasaCambio = -457.87;
-        	nombreInicial = " Kelvin equivalen a ";
+        	indicador = 6;
+        	nombreInicial = " Kelvin";
             nombreFinal = " Fahrenheit";
             break;  
         default:
             JOptionPane.showMessageDialog(null, "Opción no válida.", "Error", JOptionPane.ERROR_MESSAGE);
             break;  
         }
-        return tasaCambio;
+        return indicador;
 	}	
 	
+	//esto es una refaccion provisoria para determinar el tipo de moneda y facilitar la nomenclatura
 	public String getnombreFinal() {
 		return nombreFinal;
 	}
     
+	//esto es una refaccion provisoria para determinar el tipo de moneda y facilitar la nomenclatura
     public String getnombreInicial() {
 		return nombreInicial;
 	}
     
-    public ConversorTemperatura() {
-        tasaCambio = opciones();
-    }
-	@Override
-	public double convertir(double valor) {
-		return valor * tasaCambio;
-	}
 
+    /**
+     * El metodo convertir en este caso recibe un indicador con la selección del usuario, ya que 
+     * cada conversion de temperatura tiene un calculo independiente y personalizado, de esta manera es como 
+     * lo calcule.
+     */
+	@Override
+	
+	public double convertir(double valor) {
+		System.out.println(indicador);
+		switch(indicador) {
+		
+		case 1:
+			tasaCambio = valor + 273.15;
+			break;
+		case 2:
+			tasaCambio = (valor *9/5) + 32;
+			break;
+		case 3:
+			tasaCambio = (valor - 32) * 5/9;
+			break;
+		case 4:
+			tasaCambio = (valor - 32) * 5/9 + 273.15;
+			break;
+		case 5:
+			tasaCambio = valor - 273.15;
+			break;
+		case 6:
+			tasaCambio = (valor - 273.15) * 9/5 + 32;
+			break;
+		}
+		return tasaCambio;
+	}
+	
 }

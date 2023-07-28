@@ -2,10 +2,23 @@ package conversor;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Conversor es la clase padre del proyecto, es abstracta y la idea es marcar un molde hacia las clases hijas que 
+ * se van a lanzar un poco más en lo especifico de cada una
+ * 
+ * @author Facundo Gonzalez
+ */
 public abstract class Conversor {
 	
     public abstract double convertir(double valor);
 
+    /**
+     * mostrarMenu tiene la funcion de lanzar un menu de inicio en el cual el usuario va a poder seleccionar
+     * un tipo de conversor a gusto.
+     * 
+     * @return
+     */
+    
     public static String mostrarMenu() {
         Object[] options = {"Conversor de Monedas", "Conversor de Temperatura", "Conversor de Longitud", "Conversor Astronomico"};
         String mensaje = "Seleccione una opción de conversión";
@@ -22,10 +35,17 @@ public abstract class Conversor {
         return seleccion;
     }
 
-    public double obtenerMonto() {
+    /**
+     * obtenerMonto se encarga de lanzar un input donde el usuario pueda colocar un monto a convertir, ya sea de 
+     * temperatura, de dinero, de unidades astronomicas o longitud, esto luego lo toma directamente
+     * el launcher y se lo pasa a las clases hijas para que lo conviertan.
+     * @return
+     */
+    
+    public static double obtenerMonto(String adaptable) {
         double monto = 0;
         while (true) {
-            String ingreso = JOptionPane.showInputDialog(null, "Ingrese el monto", "Menu", JOptionPane.PLAIN_MESSAGE);
+            String ingreso = JOptionPane.showInputDialog(null, adaptable, "Menu", JOptionPane.PLAIN_MESSAGE);
             // Verificar si el usuario ingresó un valor
             if (ingreso != null && !ingreso.isEmpty()) {
                 try {
@@ -37,7 +57,7 @@ public abstract class Conversor {
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese solo números válidos.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                // Si el usuario cancela el cuadro de diálogo o no ingresa nada, mostrar un mensaje y repetir el bucle
+                // Si el usuario cancela el cuadro de diálogo o no ingresa nada, mostrar un mensaje de despedida. 
                 JOptionPane.showMessageDialog(null, "Se ha cancelado el ingreso.", "Adiós", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
             }
