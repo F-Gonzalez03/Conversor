@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
  * ConversorLongitud es otra de las clases hijas de Conversor, esta en especifico se encarga de transformar
  * una medida de distancia en otra.
  * 
+ * @version 1.0
  * @author Facundo Gonzalez
  *
  */

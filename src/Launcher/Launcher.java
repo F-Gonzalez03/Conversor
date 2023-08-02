@@ -11,6 +11,8 @@ import conversor.*;
  * Esto es el launcher, es un ejecutable donde se encuentran todas las clases hijas, y lo que se exporta luego
  * para que el usuario ejecute.
  * Aqui se puede ver la acción de cada una de las clases
+ * 
+ * @version 1.0
  * @author Facundo Gonzalez
  *
  */

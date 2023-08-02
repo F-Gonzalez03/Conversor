@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
  * ConversorAstronomico es una clase hija de Conversor, esta se encarga de transformar medidas astronomicas,
  * por el momento solo disponibles Años Luz, Minutos luz y Segundos luz
  * 
+ * @version 1.0
  * @author Facundo Gonzalez
  *
  */

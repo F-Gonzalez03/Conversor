@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  * Por el momento tiene valores obsoletos o mejor dicho desactualizados, pendiente por agregar una api que los
  * actualice automaticamente al dia de la fecha.
  * 
- * 
+ * @version 1.0
  * @author Facundo Gonzalez
  *
  */

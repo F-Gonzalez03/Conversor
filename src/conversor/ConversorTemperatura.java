@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
  * ConversorTemperatura es la clase hija que indiscutiblemente más cambios padece dentro de su codigo 
  * en comparación con las otras 3 clases hijas, ya que sus calculos son bastante más especificos.
  * 
+ * @version 1.0
  * @author Facundo Gonzalez
  *
  */
@@ -20,10 +21,8 @@ public class ConversorTemperatura extends Conversor {
 	private int indicador;
 	
 	/**
-	 * En este caso a diferencia de los otros metodos opciones(), le pedimos un valor al usuario y se encarga
-	 * de convertir directamente desde su switch, ya que cada conversión tiene su propio calculo.
-	 * @param valor
-	 * @return
+	 * En este caso a diferencia de los otros metodos opciones(), le asignamos un valor de indicador para luego según
+	 * el indicador hacer un calculo personalizado al tipo de cambio que se debe hacer.
 	 */
 	
 	public ConversorTemperatura(){
@@ -96,7 +95,7 @@ public class ConversorTemperatura extends Conversor {
 
     /**
      * El metodo convertir en este caso recibe un indicador con la selección del usuario, ya que 
-     * cada conversion de temperatura tiene un calculo independiente y personalizado, de esta manera es como 
+     * cada conversión de temperatura tiene un calculo independiente y personalizado, de esta manera es como 
      * lo calcule.
      */
 	@Override
